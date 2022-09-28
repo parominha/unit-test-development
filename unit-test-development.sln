@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "src\Sample\Sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Test", "tests\Sample.Test\Sample.Test.csproj", "{4E017C1E-F10D-45C5-B2A8-395ECEC6EB84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal", "src\Terminal\Terminal.csproj", "{B8284ACE-2D15-40EF-92F0-E7A9D95D82A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Terminal", "src\Terminal\Sample.Terminal.csproj", "{B8284ACE-2D15-40EF-92F0-E7A9D95D82A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
