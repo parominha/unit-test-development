@@ -14,22 +14,6 @@ namespace Sample.Test
         }
 
         [Fact]
-        public void IsValidMail_ReturnTrue()
-        {
-            var email = "paloma@gmail.com";
-            var emailValidate = email.IsValidMail();
-            Assert.True(emailValidate);
-        }
-
-        [Fact]
-        public void IsValidMail_ReturnFalse()
-        {
-            var email = "paloma.gmail.com";
-            var emailValidate = email.IsValidMail();
-            Assert.False(emailValidate);
-        }
-
-        [Fact]
         public void Sum_MultipleValues_ReturnSuccess()
         {
             //arrange

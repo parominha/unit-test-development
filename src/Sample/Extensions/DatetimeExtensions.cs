@@ -6,6 +6,10 @@ namespace Sample.Extensions
     {
         public static string ToStringShortPtBR(this DateTime date)
         {
+            if (date == DateTime.MinValue)
+                throw new ArgumentNullException();
+
+
             return date.ToString("dd/MM/yyyy");
         }
 
