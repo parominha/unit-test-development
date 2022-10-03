@@ -9,7 +9,7 @@ namespace Sample.Test
 
         public SampleServiceTest()
         {
-            //arrange (qualque tipo de variável necessária para montar o teste)
+            //arrange (qualquer tipo de variável necessária para montar o teste)
             _sampleService = new SampleService();
         }
 

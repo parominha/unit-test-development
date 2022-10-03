@@ -24,7 +24,6 @@ namespace Sample.Test.Extensions
             var result = dateTest.ToStringShortPtBR();
             var resultSplit = result.Split(characterSeparatorDate);
 
-
             //assert
             Assert.True(int.Parse(resultSplit[1]) <= maxValueMonth);
             Assert.Equal(expectedQtdParts, resultSplit.Length);

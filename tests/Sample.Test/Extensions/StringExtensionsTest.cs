@@ -10,19 +10,35 @@ namespace Sample.Test.Extensions
     {
         public StringExtensionsTest() { }
 
-        [Fact]
-        public void IsValidMail_ReturnTrue()
+        [Theory]
+        [InlineData("paloma@gmail.com")]
+        [InlineData("paloma@hotmail.com")]
+        [InlineData("paloma@email.com")]
+        public void IsValidMail_ReturnTrue(string value)
         {
-            var email = "paloma@gmail.com";
+            //arrange
+            var email = value;
+
+            //act
             var emailValidate = email.IsValidMail();
+
+            //assert
             Assert.True(emailValidate);
         }
 
-        [Fact]
-        public void IsValidMail_ReturnFalse()
+        [Theory]
+        [InlineData("paloma.gmail.com")]
+        [InlineData("palomahotmail")]
+        [InlineData("paloma@")]
+        public void IsValidMail_ReturnFalse(string value)
         {
-            var email = "paloma.gmail.com";
+            //arrange
+            var email = value;
+
+            //act
             var emailValidate = email.IsValidMail();
+
+            //assert
             Assert.False(emailValidate);
         }
     }
