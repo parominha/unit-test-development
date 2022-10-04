@@ -1,4 +1,5 @@
 ﻿using Sample.Extensions;
+using System;
 using Xunit;
 
 namespace Sample.Test
@@ -13,26 +14,57 @@ namespace Sample.Test
             _sampleService = new SampleService();
         }
 
-        [Fact]
-        public void Sum_MultipleValues_ReturnSuccess()
+        [Theory]
+        [InlineData(1, 1, 1, 1, 1, 1, 10)]
+        [InlineData(10, 10, 10, 10, 10, 10, 100)]
+        [InlineData(100, 2, 5, 7, 9, 10, 9)]
+        public void Subtract_MultipleValues_ReturnFalse(decimal value1, decimal value2, decimal value3, decimal value4, decimal value5, decimal value6, decimal total)
         {
-            //arrange
-            var value1 = 2;
-            var value2 = 4;
-            var value3 = 6;
-            var value4 = 8;
-            var value5 = 12;
-            var total = 2;
-            var withTotal = 34;
-            var withoutTotal = 32;
-
             //act
-            var resultWithTotal = _sampleService.Sum(total, value1, value2, value3, value4, value5);
-            var resultWithoutTotal = _sampleService.Sum(value1, value2, value3, value4, value5);
+            var result = _sampleService.Subtract(value1, value2, value3, value4, value5, value6);
 
-            //Assert
-            Assert.Equal(withTotal, resultWithTotal);
-            Assert.Equal(withoutTotal, resultWithoutTotal);
+            //assert
+            Assert.NotEqual(result, total);
+        }
+
+        [Theory]
+        [InlineData(1, 1, 1, 1, 1, 1, -4)]
+        [InlineData(10, 10, 10, 10, 10, 10, -40)]
+        [InlineData(100, 2, 5, 7, 9, 10, 67)]
+
+        public void Subtract_MultipleValues_ReturnSuccess(decimal value1, decimal value2, decimal value3, decimal value4, decimal value5, decimal value6, decimal total)
+        {
+            //act
+            var result = _sampleService.Subtract(value1, value2, value3, value4, value5, value6);
+
+            //assert
+            Assert.Equal(result, total);
+        }
+
+        [Theory]
+        [InlineData(2, 4, 6, 8, 12, 2, 5)]
+        [InlineData(2, 4, 6, 8, 12, -2, 3)]
+        [InlineData(2, 4, 6, 8, 12, 0, 6)]
+        public void Sum_MultipleValues_ReturnFalse(decimal value1, decimal value2, decimal value3, decimal value4, decimal value5, decimal value6, decimal total)
+        {
+            //act
+            var result = _sampleService.Sum(value1, value2, value3, value4, value5, value6);
+
+            //assert
+            Assert.NotEqual(result, total);
+        }
+
+        [Theory]
+        [InlineData(2, 4, 6, 8, 12, 2, 34)]
+        [InlineData(2, 4, 6, 8, 12, -2, 30)]
+        [InlineData(2, 4, 6, 8, 12, 0, 32)]
+        public void Sum_MultipleValues_ReturnSuccess(decimal value1, decimal value2, decimal value3, decimal value4, decimal value5, decimal value6, decimal total)
+        {
+            //act
+            var result = _sampleService.Sum(value1, value2, value3, value4, value5, value6);
+
+            //assert
+            Assert.Equal(result, total);
         }
 
         [Theory]
