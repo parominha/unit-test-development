@@ -10,16 +10,11 @@ namespace Sample.Test.Extensions
     {
         public DatetimeExtensionsTest() { }
 
-        [Theory]
-        [InlineData("13/07/2002")]
-        [InlineData("07/04/1996")]
-        [InlineData("01/03/1904")]
-        public void Should_DatetimeToStringShortPtBR_ReturnSuccess(DateTime date)
+        [Fact]
+        public void Should_DatetimeToStringShortPtBR_ReturnSuccess()
         {
-            date.ToString("dd/MM/yyyy");
-
             //arrange
-            var dateTest = date;
+            var dateTest = DateTime.Now;
             var expectedQtdChar = 10;
             var expectedQtdParts = 3;
             var characterSeparatorDate = "/";
@@ -35,14 +30,11 @@ namespace Sample.Test.Extensions
             Assert.Equal(expectedQtdChar, result.Length);
         }
 
-        [Theory]
-        [InlineData("32/01/1956")]
-        [InlineData("01/01/100")]
-        [InlineData("02/16/2002")]
-        public void Should_DatetimeToStringShortPtBR_ReturnFalse(DateTime date)
+        [Fact]
+        public void Should_DatetimeToStringShortPtBR_ReturnFalse()
         {
             //arrange
-            var dateTest = date;
+            var dateTest = DateTime.MinValue;
 
             //act & assert
             Assert.Throws<ArgumentNullException>(() => dateTest.ToStringShortPtBR());

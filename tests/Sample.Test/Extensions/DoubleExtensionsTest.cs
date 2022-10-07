@@ -6,5 +6,6 @@ namespace Sample.Test.Extensions
 {
     public class DoubleExtensionsTest
     {
+
     }
 }
