@@ -24,22 +24,12 @@ namespace Sample.Test.Extensions
             Assert.Contains("R$", valueC);
         }
 
-
-
-        [Theory]
-        [InlineData(200.00)]
-        [InlineData(1500.00)]
-        [InlineData(10000.00)]
-        public void Should_ToStringMoneyPtBR_ReturnFalse(double value)
-        {
-            //arrange
-
-            //act
-
-            //assert
-
-        }
-
-
+    //    [Theory]
+    //    [InlineData("a")]
+    //    [InlineData("b")]
+    //    [InlineData("c")]
+    //    public void Should_ToStringMoneyPtBR_ReturnFalse(string value)
+    //    {          
+    //    }
     }
 }
